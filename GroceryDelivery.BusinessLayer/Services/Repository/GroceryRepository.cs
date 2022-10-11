@@ -29,9 +29,8 @@ namespace GroceryDelivery.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<Product> AddProduct(Product product)
         {
-            _groceryContext.Products.Add(product);
-            await _groceryContext.SaveChangesAsync();
-            return product;
+            //do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get All product and product by id also
@@ -40,18 +39,8 @@ namespace GroceryDelivery.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<IEnumerable<Product>> GetAllProduct(int ?id)
         {
-            if(id == null)
-            {
-                var product = await _groceryContext.Products.
-                OrderByDescending(x => x.ProductName).ToListAsync();
-                return product;
-            }
-            else
-            {
-                var product = await _groceryContext.Products.Where(x => x.CatId == id).
-                OrderByDescending(x => x.ProductName).ToListAsync();
-                return product;
-            }
+            //do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get product by Id
@@ -60,10 +49,8 @@ namespace GroceryDelivery.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<Product> GetProductById(int ProductId)
         {
-            var result = await _groceryContext.Products
-                                 .Where(x => x.ProductId == ProductId)
-                                 .FirstOrDefaultAsync();
-            return result;
+            //do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Menu List of catogery
@@ -71,8 +58,8 @@ namespace GroceryDelivery.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<IList<Menubar>> MenuList()
         {
-            var menu = await _groceryContext.Menubars.ToListAsync();
-            return menu;
+            //do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Place order
@@ -82,15 +69,8 @@ namespace GroceryDelivery.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<ApplicationUser> PlaceOrder(int ProductId, ApplicationUser user)
         {
-            _groceryContext.ApplicationUsers.Add(user);
-            var order = new ProductOrder()
-            {
-                ProductId = ProductId,
-                UserId = user.UserId
-            };
-            _groceryContext.Add(order);
-            await _groceryContext.SaveChangesAsync();
-            return user;
+            //do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Find Product by Name
@@ -99,9 +79,8 @@ namespace GroceryDelivery.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<IEnumerable<Product>> ProductByName(string name)
         {
-            var result = await _groceryContext.Products.
-                Where(x => x.ProductName == name).Take(10).ToListAsync();
-            return result;
+            //do code here
+            throw new NotImplementedException();
         }
         /// <summary>
         /// Get Order Information of ordered product
@@ -110,9 +89,8 @@ namespace GroceryDelivery.BusinessLayer.Services.Repository
         /// <returns></returns>
         public async Task<IEnumerable<ProductOrder>> OrderByuserId(int UserId)
         {
-            var result = await _groceryContext.productOrders.
-                Where(x => x.UserId == UserId).Take(10).ToListAsync();
-            return result;
+            //do code here
+            throw new NotImplementedException();
         }
     }
 }
